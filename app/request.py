@@ -1,8 +1,9 @@
 from app import app
 import urllib.request,json#will help us create a connection to our API URL and send a request and json modules that will format the JSON response to a Python dictionary.
-from .Models import news_source
+from .Models import news_source,news_article
 
 Newssource=news_source.Newssource
+Newsarticle=news_article.Newsarticle
 
 # Getting API Key
 api_key=app.config['NEWS_API_KEY']
