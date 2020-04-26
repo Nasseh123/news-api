@@ -11,11 +11,11 @@ Newssource_url=app.config['NEWS_API_BASE_URL']
 
 Newsarticle_url=app.config['NEWS_ARTICLE_BASE_URL']
 
-def get_newssource():
+def get_newssource(category):
     '''
     Function that gets the json response to our url request
     '''
-    get_newssource_url=Newssource_url.format(api_key)
+    get_newssource_url=Newssource_url.format(category,api_key)
 
     with urllib.request.urlopen(get_newssource_url) as url:
         get_newssource_data=url.read()

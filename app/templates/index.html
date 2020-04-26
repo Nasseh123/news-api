@@ -1,3 +1,4 @@
+{%import 'macros.html' as macro%}
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,12 +10,42 @@
         {%endif%}
     </head>
     <body>
-        
+        <h3>GENERAL</h3>
         <ul>
-            {% for NewsSource in newssource %}
-                <li>{{ NewsSource.name}}</li>
-            {% endfor %}
+            {{macro.displayNewsSourceList(general)}}
         </ul>
+
+        <h3>TECHNOLOGY</h3>
+        <ul>
+            {{macro.displayNewsSourceList(technology)}}
+        </ul>
+        
+        <h3>BUSINESS</h3>
+        <ul>
+            {{macro.displayNewsSourceList(business)}}
+        </ul>
+        
+        <h3>SPORTS</h3>
+        <ul>
+            {{macro.displayNewsSourceList(sports)}}
+        </ul>
+         
+        <h3>ENTERTAINMENT</h3>
+        <ul>
+            {{macro.displayNewsSourceList(entertainment)}}
+        </ul>
+        
+         <h3>HEALTH</h3>
+
+         <ul>
+            {{macro.displayNewsSourceList(health)}}
+        </ul>
+          
+        <h3>SCIENCE</h3>
+        <ul>
+            {{macro.displayNewsSourceList(science)}}
+        </ul>
+         
 
     </body>
 </html>
