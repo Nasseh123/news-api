@@ -18,7 +18,7 @@ def index():
 
     title="Home-Welcome to NEWS sources Website"
     return render_template('index.html',title=title,general=general_news_sources,
-    technolgy=technology_news_sources,business=business_news_sources,sports=sports_news_sources,entertainment=entertainment_news_sources,health=health_news_sources,
+    technology=technology_news_sources,business=business_news_sources,sports=sports_news_sources,entertainment=entertainment_news_sources,health=health_news_sources,
     science=science_news_sources)
 
 @app.route('/news/<news_id>')
