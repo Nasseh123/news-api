@@ -107,4 +107,5 @@ def process_results_article(newsarticle_list):
 
 
 
+
             
