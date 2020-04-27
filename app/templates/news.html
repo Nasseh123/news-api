@@ -1,16 +1,13 @@
-{%extends 'base.html'%}
-<!-- <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        {% if title %}
-        <title> {{ title }}</title>
-        {% else %}
-        <title>News Id </title>
-        {% endif %}
-    </head>
-    <body>
-
-    </body>
-</html> -->
-<!-- <h1> Hello  {{ id }} </h1> -->
+{% extends 'base.html'%}
+{%import 'macros.html' as macro%}
+<!-- Content block -->
+{% block content %}
+<div class="row">
+    <ul>
+        {{macro.displaySourcesClicked(news)}} *****
+        
+        <!-- create a link that calls the get_article  -->
+        <!-- pass the news source into the url -->
+    </ul>
+</div>
+{% endblock %}

@@ -1,6 +1,29 @@
-{%macro displayNewsSourceList(news_list)%}
+{%macro displayNewsSourceList(newssource_list)%}
 
-    {%for news in news_list%}
-        <li>{{news.name}}</li>
-    {%endfor%}
+{%for newssource in newssource_list%}
+<div class=" ">
+
+    <div class="col-md-4 movie-card">
+        <h3>{{newssource.name}}</h3>
+        <p>{{newssource.description}}</p>
+        <a href="/news/{{newssource.id}}">View articles</a>
+
+        <a href="{{newssource.url}}" target="blank"> Link to The Main {{newssource.name}} site</a>
+    </div>
+</div>
+
+{%endfor%}
 {%endmacro%}
+
+{% macro displaySourcesClicked(source_list) %}
+{% for source in source_list %}
+    <div class="col-md-4" >
+        <h1>{{source.title}}</h1>
+        <h4>{{source.description}}</h4>
+        <img src="{{source.urlToImage}}" alt="">
+
+        <!-- get articles  pass source.name -->
+
+    </div>
+{% endfor %}
+{% endmacro %}

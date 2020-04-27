@@ -1,42 +1,24 @@
 {%extends 'base.html'%}
 {%import 'macros.html' as macro%}
 
-    <!-- Content block -->
-    {% block content %}
-    <h3>GENERAL</h3>
+!-- Styles block -->
+
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
+
+<!-- Content block -->
+{% block content %}
+<hr>
+<div class="row">
+    <h3 style="text-align: center;">GENERAL</h3>
     <ul>
         {{macro.displayNewsSourceList(general)}}
+        
     </ul>
+</div>
+<hr>
 
-    <h3>TECHNOLOGY</h3>
-    <ul>
-        {{macro.displayNewsSourceList(technology)}}
-    </ul>
 
-    <h3>BUSINESS</h3>
-    <ul>
-        {{macro.displayNewsSourceList(business)}}
-    </ul>
-
-    <h3>SPORTS</h3>
-    <ul>
-        {{macro.displayNewsSourceList(sports)}}
-    </ul>
-
-    <h3>ENTERTAINMENT</h3>
-    <ul>
-        {{macro.displayNewsSourceList(entertainment)}}
-    </ul>
-
-    <h3>HEALTH</h3>
-
-    <ul>
-        {{macro.displayNewsSourceList(health)}}
-    </ul>
-
-    <h3>SCIENCE</h3>
-    <ul>
-        {{macro.displayNewsSourceList(science)}}
-    </ul>
-
-    {% endblock%}
+{% endblock%}
