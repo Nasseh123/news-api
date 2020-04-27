@@ -12,6 +12,8 @@ Newssource_url=app.config['NEWS_API_BASE_URL']
 
 Newsarticle_url=app.config['NEWS_ARTICLE_BASE_URL']
 
+NewsarticleSearch_url=app.config['NEWS_ARTICLE_SEARCH_BASE_URL']
+
 def get_newssource():
     '''
     Function that gets the json response to our url request
@@ -100,6 +102,20 @@ def process_results_article(newsarticle_list):
             newsarticle_object=Newsarticle(id,name,author,title,urlToImage,description,url,publishedAt,content)
             Newsarticle_results.append(newsarticle_object)
     return Newsarticle_results
+
+def search_newsarticle(articlesTitle):
+    News_Article_search_URL=NewsarticleSearch_url.format(articlesTitle,api_key)
+    with urllib.request.urlopen(News_Article_search_URL) as   url:
+        search_Article_data=url.read()
+        search_Article_response=json.loads(search_Article_data)
+
+        search_Article_results=None
+
+        if search_Article_response['articles']:
+            search_Article_list=search_Article_response['articles']
+            search_Article_results=process_results_article(search_Article_list)
+
+    return search_Article_results
 
 
 
