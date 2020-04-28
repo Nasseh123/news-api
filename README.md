@@ -1,4 +1,4 @@
-# News_Highlight
+# News_Api App
 
 > This application lists various sources of news and subsequent highlights in each of the source. clicking an individual highlights takes the user to the article itself for the full story
 
