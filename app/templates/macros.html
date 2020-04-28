@@ -8,7 +8,7 @@
     <div class="card-body">
       <p class="card-text">{{headline.title}}</p>
     
-            <h4>PUBLISHED ON:{{headline.publishedAt}}</h4>
+            <p>Posted On: {{headline.publishedAt|truncate(13)}}</p>
             <a href="/news/{{headline.id}}">View full Headline</a>
     </div>
 </div>
@@ -24,7 +24,7 @@
     <div class=" movie-card">
         <h3>{{newssource.name}}</h3>
         <p>{{newssource.description}}</p>
-        <a href="/news/{{newssource.id}}">View articles</a>
+        <a href="/news/{{newssource.id}}">View articles related to {{newssource.name}}</a><br>
 
         <a href="{{newssource.url}}" target="blank"> Link to The Main {{newssource.name}} site</a>
     </div>
@@ -34,15 +34,16 @@
 
 {% macro displaySourcesClicked(source_list) %}
 {% for source in source_list %}
-
+.
    <div class="col-md-4">
     <div  style="width: 18rem; border: brown;">
+        <h3>{{source.title}}</h3>
         <img src="{{source.urlToImage}}" alt="{{source.title |truncate(5)}}" class="image-fluid" height='250' width="250">
         <div class="card-body">
-            <h4>{{source.title}}</h1>
-            <h4>{{source.description| truncate(15)}}</h4>
-            <h4>PUBLISHED ON:{{source.publishedAt}}</h4>
-            <a href="/news/{{source.id}}">View full Article</a>
+            
+            <p>{{source.description| truncate(100)}}</p>
+            <p>PUBLISHED ON:{{source.publishedAt | truncate(13)}}</p>
+            <a href="{{source.url}}">View full Article</a>
         </div>
     </div>
    </div>
@@ -54,7 +55,7 @@
 {% for categorys in category %}
     <div class="col-md-4" >
     
-        <a href="/news/{{categorys.title}}">View articles</a>
+        <a href="/news/{{categorys.title}}" target="blank">View articles</a>
         <p>{{categorys.author}}</p>
     
         <!-- get articles  pass source.name -->

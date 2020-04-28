@@ -209,7 +209,7 @@ def process_results_article(newsarticle_list):
         publishedAt=newsarticle_item.get('publishedAt')
         content=newsarticle_item.get('content')
         # print(newsarticle_item)
-        if url:
+        if urlToImage:
             newsarticle_object=Newsarticle(id,name,author,title,urlToImage,description,url,publishedAt,content)
             Newsarticle_results.append(newsarticle_object)
     return Newsarticle_results
