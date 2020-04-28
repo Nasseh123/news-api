@@ -17,14 +17,33 @@
     </form>
 </div>
 <hr>
-<div class="row">
-    <h3 style="text-align: center;">GENERAL</h3>
-    <ul>
-        {{macro.displayNewsSourceList(general)}}
-        
-    </ul>
-</div>
+
 <hr>
 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <h3 style="font-family: sans-serif; font-style: italic;"><u>Today on Top USA Headlines</u></h3>
+    
+        
+            {{macro.displayheadlines(newsheadlines)}}
+        </div>
+      <div class="col-md-8">
+        <h3>NEWS SOURCES</h3><span style="font-style: italic;">{{general|count}} News Source Available</span>
+        
+        <hr>
+        
+            {{macro.displayNewsSourceList(general)}}
+        
+      </div>
+        
+    
+    
+    </div>
+</div>
 
-{% endblock%}
+
+    
+       
+
+{%endblock%}
