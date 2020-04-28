@@ -1,7 +1,5 @@
 import unittest
-from Models import news_article
-Newsarticle=news_article.Newsarticle
-
+from app.Models import news_article
 class newsarticletest(unittest.TestCase):
     """
     Test Class to test the behaviour of the Newsarticle class
@@ -25,6 +23,3 @@ class newsarticletest(unittest.TestCase):
         self.assertEqual(self.new_newsarticle.urlToImage,'urltoimage')
         self.assertEqual(self.new_newsarticle.publishedAt,'2020-04-03T10:09:32Z')
         self.assertEqual(self.new_newsarticle.content,'content')
-
-if __name__ == '__main__':
-    unittest.main()

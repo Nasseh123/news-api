@@ -1,25 +1,29 @@
-from app import app
 import urllib.request,json#will help us create a connection to our API URL and send a request and json modules that will format the JSON response to a Python dictionary.
-from .Models import news_source,news_article
+from .models import Newssource,Newsarticle
 
-Newssource=news_source.Newssource
-Newsarticle=news_article.Newsarticle
 
-# Getting API Key
-api_key=app.config['NEWS_API_KEY']
 
-Newssource_url=app.config['NEWS_API_BASE_URL']
+# Getting API Key and the urls
+api_key = None
+Newssource_url = None
+Newsarticle_url = None
+NewsarticleSearch_url = None
 
-Newsarticle_url=app.config['NEWS_ARTICLE_BASE_URL']
+def config_request(app):
 
-NewsarticleSearch_url=app.config['NEWS_ARTICLE_SEARCH_BASE_URL']
+    global api_key,Newssource_url,Newsarticle_url,NewsarticleSearch_url
+
+    api_key=app.config['NEWS_API_KEY']
+    Newssource_url=app.config['NEWS_API_BASE_URL']
+    Newsarticle_url=app.config['NEWS_ARTICLE_BASE_URL']
+    NewsarticleSearch_url=app.config['NEWS_ARTICLE_SEARCH_BASE_URL']
+
 
 def get_newssource():
     '''
     Function that gets the json response to our url request
     '''
     get_newssource_url=Newssource_url.format(api_key)
-
     with urllib.request.urlopen(get_newssource_url) as url:
         get_newssource_data=url.read()
         get_newssource_response=json.loads(get_newssource_data)

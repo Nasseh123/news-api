@@ -1,8 +1,9 @@
 from flask import render_template,request,redirect,url_for
-from app import app
-from .request import get_newssource,get_news_article,search_newsarticle
+from . import main
+from ..request import get_newssource,get_news_article,search_newsarticle
+from ..models import Newsarticle,Newssource
 # Views
-@app.route('/')
+@main.route('/')
 def index():
     '''
     View root page function that returns the index page and its data
@@ -20,11 +21,11 @@ def index():
     title="Home-Welcome to NEWS sources Website"
     search_article=request.args.get('article_query')
     if search_article:
-        return redirect(url_for('search',article_name=search_article))
+        return redirect(url_for('.search',article_name=search_article))
     else:
         return render_template('index.html',title=title,general=general_news_sources)
 
-@app.route('/news/<source>')
+@main.route('/news/<source>')
 def news(source):
     '''
     View news article function that returns the news articles page and its data
@@ -33,7 +34,7 @@ def news(source):
     # title=f'{newsarticle.title}'
     print(newsarticle)
     return render_template ('news.html',news=newsarticle)
-@app.route('/search/<article_name>')
+@main.route('/search/<article_name>')
 def search(article_name): 
     """
     View FUnction to display the search results

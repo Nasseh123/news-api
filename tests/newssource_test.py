@@ -1,5 +1,5 @@
 import unittest
-from Models import news_source
+from app.models import Newssource
 Newssource=news_source.Newssource
 
 class newstest(unittest.TestCase):
@@ -29,5 +29,3 @@ class newstest(unittest.TestCase):
         self.assertEqual(self.new_newssource.country,'country')
         
 
-if __name__ == '__main__':
-    unittest.main()
