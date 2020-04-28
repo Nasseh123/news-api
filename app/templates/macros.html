@@ -9,7 +9,7 @@
       <p class="card-text">{{headline.title}}</p>
     
             <p>Posted On: {{headline.publishedAt|truncate(13)}}</p>
-            <a href="/news/{{headline.id}}">View full Headline</a>
+            <a href="{{headline.url}}">View full Headline</a>
     </div>
 </div>
 {%endfor%}
